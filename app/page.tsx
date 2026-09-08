@@ -2,277 +2,320 @@
 
 import React, { useState } from 'react';
 
-export default function LandyMedicalPage() {
-  const [formData, setFormData] = useState({ name: '', email: '', facility: '', message: '' });
+export default function NextGenMedicalLanding() {
+  // 1. حالة المحاكي الحي لنظام الانتظار
+  const [activeTab, setActiveTab] = useState<'queue' | 'patient' | 'analytics'>('queue');
+  const [ticketNumber, setTicketNumber] = useState(104);
+  const [isCalling, setIsCalling] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert('شكرًا لتواصلك معنا! سيقوم فريقنا الفني بالرد عليك في أقرب وقت.');
+  // 2. حالة حاسبة العائد وتوفير الوقت (ROI Calculator)
+  const [dailyPatients, setDailyPatients] = useState(300);
+
+  // 3. حالة نموذج التواصل
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleIssueTicket = () => {
+    setIsCalling(true);
+    setTicketNumber((prev) => prev + 1);
+    setTimeout(() => setIsCalling(false), 600);
   };
 
+  // حسابات حاسبة العائد
+  const hoursSavedPerMonth = Math.round(dailyPatients * 0.25 * 30);
+  const satisfactionRate = Math.min(99, Math.round(70 + (dailyPatients / 2000) * 28));
+
   return (
-    <div className="min-h-screen bg-white text-slate-800 font-sans">
-      {/* 1. Header Navigation */}
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
-        <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-950 relative overflow-hidden">
+      {/* خلفية الإضاءة الشبكية (Grid Background & Glows) */}
+      <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-b from-cyan-500/10 via-blue-600/10 to-transparent blur-3xl pointer-events-none"></div>
+
+      {/* 1. Navbar */}
+      <header className="sticky top-0 z-50 bg-slate-950/70 backdrop-blur-xl border-b border-slate-800/80">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold text-2xl shadow-blue-200 shadow-lg">
-              +
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-cyan-500/20">
+              ✦
             </div>
-            <span className="font-extrabold text-2xl text-slate-900 tracking-tight">كيرتيك <span className="text-blue-600">CareTech</span></span>
+            <span className="font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+              CareTech <span className="text-cyan-400 font-light">OS</span>
+            </span>
           </div>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
-            <a href="#about" className="hover:text-blue-600 transition">عن المنظومة</a>
-            <a href="#queue-system" className="hover:text-blue-600 transition">نظام الانتظار</a>
-            <a href="#hr-system" className="hover:text-blue-600 transition">الموارد البشرية</a>
-            <a href="#services" className="hover:text-blue-600 transition">خدماتنا</a>
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+            <a href="#bento" className="hover:text-cyan-400 transition">الأنظمة الرقمية</a>
+            <a href="#calculator" className="hover:text-cyan-400 transition">حاسبة الأداء</a>
+            <a href="#contact" className="hover:text-cyan-400 transition">طلب التجربة</a>
           </nav>
 
           <a
             href="#contact"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-blue-500/20 transition"
+            className="relative group overflow-hidden rounded-xl p-px font-semibold text-xs transition"
           >
-            تواصل معنا
+            <span className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl group-hover:opacity-90 transition"></span>
+            <span className="relative block px-5 py-2.5 bg-slate-950 rounded-[11px] text-white group-hover:bg-transparent transition">
+              حجز عرض توضيحي
+            </span>
           </a>
         </div>
       </header>
 
-      {/* 2. Hero Block (Intro Section) */}
-      <section className="py-20 md:py-28 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <span className="px-3.5 py-1.5 bg-blue-50 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wider inline-block mb-4 border border-blue-100">
-            حلول برمجية صحية متكاملة
+      {/* 2. Hero Section */}
+      <section className="relative pt-20 pb-16 px-6 max-w-7xl mx-auto text-center">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-semibold mb-8 backdrop-blur-md">
+          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+          جيل جديد من برمجيات تشغيل المستشفيات
+        </div>
+
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.15] max-w-4xl mx-auto">
+          البنية التحتية البرمجية <br />
+          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">
+            للمنشآت الطبية الحديثة
           </span>
-          <h1 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
-            تحول رقمي ذكي <br />
-            <span className="text-blue-600">للمستشفيات والعيادات</span>
-          </h1>
-          <p className="text-slate-600 text-base md:text-lg mt-6 leading-relaxed">
-            نقدم حلولاً متقدمة تتضمن أنظمة إدارة الانتظار والنداء الآلي، إدارة الموارد البشرية الطبية، وتصميم واجهات واحترافية تسهم في رفع كفاءة المنشآت الصحية وتطوير تجربة المريض.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#contact"
-              className="bg-blue-600 text-white px-7 py-3.5 rounded-xl font-bold shadow-lg shadow-blue-600/30 hover:bg-blue-700 transition"
-            >
-              طلب عرض تجريبي (Demo)
-            </a>
-            <a
-              href="#queue-system"
-              className="bg-slate-100 text-slate-700 px-7 py-3.5 rounded-xl font-bold hover:bg-slate-200 transition"
-            >
-              استكشف الأنظمة
-            </a>
-          </div>
-        </div>
+        </h1>
 
-        {/* Visual Graphic Representation */}
-        <div className="relative bg-gradient-to-tr from-blue-600 to-indigo-700 p-8 rounded-3xl text-white shadow-2xl">
-          <div className="absolute -top-4 -right-4 bg-white text-slate-900 p-4 rounded-2xl shadow-xl font-bold text-xs flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></span>
-            نظام الانتظار نشط الآن
-          </div>
-          <div className="space-y-4 font-mono text-sm">
-            <div className="text-blue-200 text-xs uppercase tracking-wider">لوحة التحليلات المباشرة</div>
-            <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10">
-              <div className="text-xs text-blue-200">متوسط وقت الانتظار الحالي</div>
-              <div className="text-2xl font-bold mt-1">04 دقيقة : 12 ثانية</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10">
-              <div className="text-xs text-blue-200">عدد المراجعين المنظّمين اليوم</div>
-              <div className="text-2xl font-bold mt-1">1,248 مراجع</div>
-            </div>
-          </div>
-        </div>
-      </section>
+        <p className="mt-6 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          نحول إدارة الطوابير، الموارد البشرية، وتجربة المراجعين إلى منظومة سحابية متكاملة فائقة السرعة مع ربط مباشر بـ HIS.
+        </p>
 
-      {/* 3. Middle Block (Mission Statement - Inspired by Landy Middle Block) */}
-      <section id="about" className="bg-slate-50 py-20 px-6 text-center border-y border-slate-200/60">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-slate-900">نحدث الفارق في إدارة المنشآت الصحية</h2>
-          <p className="text-slate-600 mt-4 leading-relaxed text-base md:text-lg">
-            تم تصميم أنظمتنا خصيصاً لتناسب بيئة العمل الشاقة داخل المستشفيات والعيادات. نهدف إلى القضاء على العشوائية في صالات الانتظار وتسهيل المتابعة الإدارية للكادر الطبي عبر واجهات سريعة وموثوقة.
-          </p>
-        </div>
-      </section>
-
-      {/* 4. Right Content Block (Queue System Spotlight) */}
-      <section id="queue-system" className="py-20 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <span className="text-blue-600 font-bold text-sm tracking-wider uppercase">المنتج الرئيسي</span>
-          <h2 className="text-3xl font-extrabold text-slate-900 mt-2">نظام إدارة الانتظار والنداء الذكي (QMS)</h2>
-          <p className="text-slate-600 mt-4 leading-relaxed">
-            نظام متكامل يتيح للمراجعين حجز التذاكر عبر أجهزة التوزيع الذاتي أو الاستجابة السريعة (QR Code)، مع نداء صوتي وتنبيهات فورية على الشاشات لتقليل تكدس المرضى.
-          </p>
-          <div className="grid grid-cols-2 gap-4 mt-6">
-            <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
-              <div className="font-bold text-slate-900 text-lg">تذكرة QR رقمية</div>
-              <p className="text-xs text-slate-500 mt-1">متابعة الدور مباشرة عبر جوال المريض</p>
+        {/* التفاعلية 1: محاكي النظام الحي داخل قسم الهيرو */}
+        <div className="mt-12 max-w-4xl mx-auto rounded-3xl border border-slate-800 bg-slate-900/60 p-4 sm:p-6 backdrop-blur-2xl shadow-2xl shadow-cyan-950/30">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+            <div className="flex gap-2">
+              <button
+                onClick={() => setActiveTab('queue')}
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
+                  activeTab === 'queue' ? 'bg-cyan-500 text-slate-950' : 'bg-slate-800 text-slate-400 hover:text-white'
+                }`}
+              >
+                شاشة شريط النداء
+              </button>
+              <button
+                onClick={() => setActiveTab('patient')}
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
+                  activeTab === 'patient' ? 'bg-cyan-500 text-slate-950' : 'bg-slate-800 text-slate-400 hover:text-white'
+                }`}
+              >
+                تطبيق جوال المريض
+              </button>
+              <button
+                onClick={() => setActiveTab('analytics')}
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
+                  activeTab === 'analytics' ? 'bg-cyan-500 text-slate-950' : 'bg-slate-800 text-slate-400 hover:text-white'
+                }`}
+              >
+                التحليلات الحية
+              </button>
             </div>
-            <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
-              <div className="font-bold text-slate-900 text-lg">نداء صوتي متعدد</div>
-              <p className="text-xs text-slate-500 mt-1">تنبيه آلي باللغتين العربية والإنجليزية</p>
-            </div>
+            <span className="text-xs font-mono text-slate-500 hidden sm:block">STATUS: ONLINE • 240 FPS</span>
           </div>
-        </div>
 
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xl space-y-3">
-          <div className="border-b pb-3 font-bold text-slate-700 text-sm">عرض شاشات العيادات الحية</div>
-          <div className="bg-blue-50 border border-blue-100 p-3 rounded-lg flex justify-between items-center">
-            <div>
-              <div className="font-bold text-blue-900">عيادة B1 - الباطنية</div>
-              <div className="text-xs text-blue-600">الطبيب: د. خالد السعيد</div>
-            </div>
-            <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-md">B-201</span>
-          </div>
-          <div className="bg-slate-50 border border-slate-100 p-3 rounded-lg flex justify-between items-center">
-            <div>
-              <div className="font-bold text-slate-800">عيادة C2 - الأطفال</div>
-              <div className="text-xs text-slate-500">الطبيب: د. سارة العتيبي</div>
-            </div>
-            <span className="px-3 py-1 bg-slate-800 text-white text-xs font-bold rounded-md">C-104</span>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Left Content Block (HR & Admin System Spotlight) */}
-      <section id="hr-system" className="py-20 bg-slate-50 border-y border-slate-200/60">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1 bg-white p-6 rounded-2xl border border-slate-200 shadow-xl space-y-4">
-            <div className="flex items-center justify-between border-b pb-3">
-              <span className="font-bold text-slate-800">جدول المناوبات والشيفتات</span>
-              <span className="text-xs text-emerald-600 font-bold bg-emerald-50 px-2 py-1 rounded">مكتمل 100%</span>
-            </div>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between p-2.5 bg-slate-50 rounded">
-                <span>الكادر الطبي (الأطباء)</span>
-                <span className="font-bold text-slate-700">24 طبيب نشط</span>
+          {/* محتوى التبويبات المتغيرة */}
+          {activeTab === 'queue' && (
+            <div className="grid sm:grid-cols-3 gap-4 items-center bg-slate-950 p-6 rounded-2xl border border-slate-800">
+              <div className="sm:col-span-2 text-right">
+                <span className="text-xs text-cyan-400 font-mono">النداء الحالي • عيادة الباطنية</span>
+                <div className="flex items-baseline gap-4 mt-2">
+                  <span className={`text-5xl font-black font-mono transition-transform duration-300 ${isCalling ? 'scale-110 text-cyan-300' : 'text-white'}`}>
+                    A-{ticketNumber}
+                  </span>
+                  <span className="text-slate-400 text-sm">الغرفة رقم 04</span>
+                </div>
+                <p className="text-xs text-slate-500 mt-2">يرجى من المراجع التوجه فوراً لعيادة د. خالد</p>
               </div>
-              <div className="flex justify-between p-2.5 bg-slate-50 rounded">
-                <span>تمريض الطوارئ والتنويم</span>
-                <span className="font-bold text-slate-700">48 ممرض/ممرضة</span>
+              <div className="border-t sm:border-t-0 sm:border-r border-slate-800 pt-4 sm:pt-0 sm:pr-6 text-center">
+                <button
+                  onClick={handleIssueTicket}
+                  className="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold py-3 px-4 rounded-xl shadow-lg shadow-cyan-500/20 active:scale-95 transition"
+                >
+                  اضغط لاستدعاء التالي ⚡
+                </button>
+                <span className="text-[10px] text-slate-500 mt-2 block">تجربة تفاعلية حية</span>
               </div>
             </div>
-          </div>
+          )}
 
-          <div className="order-1 md:order-2">
-            <span className="text-blue-600 font-bold text-sm tracking-wider uppercase">أنظمة التشغيل</span>
-            <h2 className="text-3xl font-extrabold text-slate-900 mt-2">نظام الموارد البشرية للقطاع الطبي (HR)</h2>
-            <p className="text-slate-600 mt-4 leading-relaxed">
-              نظام مصمم لتلبية متطلبات المرافِق الصحية من إدارة الشيفتات والمناوبات المتغيرة، متابعة الإجازات البديلة، وحساب المستحقات الإضافية بدقة ووفق الأنظمة المحلية.
-            </p>
-          </div>
+          {activeTab === 'patient' && (
+            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex justify-between items-center text-right">
+              <div>
+                <span className="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 text-[10px] rounded-full font-bold">دورك اقترب</span>
+                <h4 className="font-bold text-lg mt-2">باقي مراجع واحد قبل دخولك</h4>
+                <p className="text-xs text-slate-400 mt-1">الوقت التقديري المتوقع: 4 دقائق</p>
+              </div>
+              <div className="w-16 h-16 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center font-mono font-bold text-cyan-400">
+                QR
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'analytics' && (
+            <div className="grid grid-cols-3 gap-3 text-right">
+              <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                <div className="text-slate-500 text-xs">معدل الانتظار</div>
+                <div className="text-xl font-bold text-cyan-400 mt-1">3.2 دقيقة</div>
+              </div>
+              <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                <div className="text-slate-500 text-xs">المراجعين اليوم</div>
+                <div className="text-xl font-bold text-blue-400 mt-1">1,420</div>
+              </div>
+              <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                <div className="text-slate-500 text-xs">نسبة الخروج بالوقت</div>
+                <div className="text-xl font-bold text-emerald-400 mt-1">98.4%</div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* 6. Services Grid Section */}
-      <section id="services" className="py-20 max-w-6xl mx-auto px-6">
+      {/* 3. Bento Grid Section */}
+      <section id="bento" className="py-20 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-slate-900">خدماتنا البرمجية المخصصة</h2>
-          <p className="text-slate-600 mt-2">نطور ونساند البرمجيات الطبية بأعلى معايير الجودة والأمان</p>
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">منظومة مخصصة للارتقاء بالتطبيق الطبي</h2>
+          <p className="text-slate-400 mt-3">كل ما تحتاجه إدارتك الصحية في واجهة واحدة متناسقة</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="p-8 bg-white rounded-2xl border border-slate-200 hover:border-blue-500 hover:shadow-xl transition group">
-            <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold text-xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
-              🎨
+        {/* شبكة البينتو */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1: Large Feature (Queue System) */}
+          <div className="md:col-span-2 rounded-3xl border border-slate-800 bg-slate-900/40 p-8 backdrop-blur-xl hover:border-cyan-500/40 transition duration-300 relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl group-hover:bg-cyan-500/10 transition"></div>
+            <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">FLAGSHIP SYSTEM</span>
+            <h3 className="text-2xl font-bold mt-2">نظام الانتظار والنداء الآلي الذكي</h3>
+            <p className="text-slate-400 text-sm mt-3 leading-relaxed max-w-lg">
+              إدارة مرنة للطوابير مع تحكم كامل بشاشات العيادات، إصدار التذاكر عبر الجوال، ونداء صوتي متعدد اللغات يقلل الازدحام بنسبة تصل إلى 60%.
+            </p>
+            <div className="mt-8 pt-6 border-t border-slate-800/80 flex flex-wrap gap-3">
+              {['تذاكر رقمية QR', 'تكامل مع الشاشات', 'ربط سحابي مباشر', 'تنبيهات SMS / WhatsApp'].map((tag, idx) => (
+                <span key={idx} className="px-3 py-1 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-300">
+                  ✓ {tag}
+                </span>
+              ))}
             </div>
-            <h3 className="text-xl font-bold text-slate-900">تصميم الواجهات الطبية (UI/UX)</h3>
-            <p className="text-slate-600 text-sm mt-3 leading-relaxed">
-              تصميم واجهات وسيطة للبوابات الطبية ولوحات التحكم تراعي سهولة الاستخدام السريع وتمنع الأخطاء البشرية.
+          </div>
+
+          {/* Card 2: HR System */}
+          <div className="rounded-3xl border border-slate-800 bg-slate-900/40 p-8 backdrop-blur-xl hover:border-blue-500/40 transition duration-300 relative overflow-hidden">
+            <span className="text-xs font-mono text-blue-400 uppercase tracking-widest">HR & ROSTER</span>
+            <h3 className="text-xl font-bold mt-2">أتمتة الموارد البشرية الطبية</h3>
+            <p className="text-slate-400 text-xs mt-3 leading-relaxed">
+              تخطيط مناوبات الشيفتات المعقدة للكادر الطبي، متابعة البدلات، وحساب الساعات الإضافية بدقة فائقة.
+            </p>
+            <div className="mt-6 p-4 rounded-2xl bg-slate-950 border border-slate-800 text-xs space-y-2">
+              <div className="flex justify-between text-slate-400">
+                <span>تغطية الطوارئ اليوم:</span>
+                <span className="text-emerald-400 font-bold">100%</span>
+              </div>
+              <div className="w-full bg-slate-900 h-1.5 rounded-full overflow-hidden">
+                <div className="bg-emerald-500 h-full w-full"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: UI/UX Medical Design */}
+          <div className="rounded-3xl border border-slate-800 bg-slate-900/40 p-8 backdrop-blur-xl hover:border-indigo-500/40 transition duration-300">
+            <span className="text-xs font-mono text-indigo-400 uppercase tracking-widest">DESIGN SYSTEMS</span>
+            <h3 className="text-xl font-bold mt-2">تصميم الواجهات الطبية (UI/UX)</h3>
+            <p className="text-slate-400 text-xs mt-3 leading-relaxed">
+              بناء وتطوير واجهات البوابات الطبية بنظم إرشادية تمنع الأخطاء أثناء إدخال بيانات المرضى وتسرع استجابة الكادر.
             </p>
           </div>
 
-          <div className="p-8 bg-white rounded-2xl border border-slate-200 hover:border-blue-500 hover:shadow-xl transition group">
-            <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold text-xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
-              🔗
+          {/* Card 4: Calculator / ROI Integration (Wide) */}
+          <div id="calculator" className="md:col-span-2 rounded-3xl border border-slate-800 bg-slate-900/40 p-8 backdrop-blur-xl hover:border-cyan-500/40 transition duration-300">
+            <div className="flex justify-between items-start flex-wrap gap-4">
+              <div>
+                <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">INTERACTIVE CALCULATOR</span>
+                <h3 className="text-2xl font-bold mt-1">حاسبة رفع كفاءة التشغيل</h3>
+                <p className="text-slate-400 text-xs mt-1">حدد متوسط عدد مراجعي المنشأة يومياً للتحقق من النتائج المتوقعة:</p>
+              </div>
             </div>
-            <h3 className="text-xl font-bold text-slate-900">ربط الأنظمة (HIS Integration)</h3>
-            <p className="text-slate-600 text-sm mt-3 leading-relaxed">
-              ربط أنظمة الانتظار والموارد البشرية بنظام معلومات المستشفى الرئيسي ببروتوكولات آمنة وموثوقة.
-            </p>
-          </div>
 
-          <div className="p-8 bg-white rounded-2xl border border-slate-200 hover:border-blue-500 hover:shadow-xl transition group">
-            <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold text-xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
-              🛠️
+            <div className="mt-6 space-y-6">
+              <div>
+                <div className="flex justify-between text-sm font-bold mb-2">
+                  <span>عدد المراجعين اليومي:</span>
+                  <span className="text-cyan-400 font-mono text-lg">{dailyPatients} مراجع</span>
+                </div>
+                <input
+                  type="range"
+                  min="50"
+                  max="2000"
+                  step="50"
+                  value={dailyPatients}
+                  onChange={(e) => setDailyPatients(Number(e.target.value))}
+                  className="w-full accent-cyan-400 bg-slate-950 h-2 rounded-lg cursor-pointer"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-800">
+                <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                  <div className="text-slate-500 text-xs">ساعات انتظار موفرة شهرياً</div>
+                  <div className="text-2xl font-black text-cyan-400 font-mono mt-1">+{hoursSavedPerMonth.toLocaleString()} ساعة</div>
+                </div>
+                <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                  <div className="text-slate-500 text-xs">معدل رضا المراجعين التقديري</div>
+                  <div className="text-2xl font-black text-emerald-400 font-mono mt-1">{satisfactionRate}%</div>
+                </div>
+              </div>
             </div>
-            <h3 className="text-xl font-bold text-slate-900">الدعم الفني والصيانة</h3>
-            <p className="text-slate-600 text-sm mt-3 leading-relaxed">
-              عقود صيانة سنوية (SLA) تضمن استقرار السيرفرات والتحديثات المستمرة والتجاوب الفوري مع البلاغات.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* 7. Contact Form Block (Inspired by Landy Form) */}
-      <section id="contact" className="py-20 bg-slate-900 text-white px-6">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl font-extrabold">طلب عرض سعر أو تجربة</h2>
-            <p className="text-slate-400 mt-4 leading-relaxed">
-              تواصل معنا لتحديد متطلبات مستشفاك أو عيادتك، وسيقوم فريقنا التقني بإعداد عرض سعر مخصص وتقديم تجربة حية للأنظمة.
-            </p>
-          </div>
+      {/* 4. CTA & Form Section */}
+      <section id="contact" className="py-20 px-6 max-w-4xl mx-auto">
+        <div className="rounded-3xl border border-slate-800 bg-gradient-to-b from-slate-900/80 to-slate-950 p-8 sm:p-12 backdrop-blur-2xl text-center relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl"></div>
 
-          <form onSubmit={handleSubmit} className="bg-slate-800 p-8 rounded-2xl border border-slate-700 space-y-4">
-            <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">الاسم الكامل</label>
-              <input
-                type="text"
-                required
-                className="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm focus:border-blue-500 outline-none text-white"
-                placeholder="أدخل اسمك"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              />
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">جاهز لتحديث أنظمة مستشفاك؟</h2>
+          <p className="text-slate-400 text-sm mt-3 max-w-lg mx-auto">
+            تواصل معنا لإدراج مستشفاك أو عيادتك ضمن العرض التجريبي المباشر للأنظمة.
+          </p>
+
+          {formSubmitted ? (
+            <div className="mt-8 p-6 bg-cyan-500/10 border border-cyan-500/30 rounded-2xl text-cyan-300 text-sm font-bold">
+              ✓ تم استقبال طلبك بنجاح. يتواصل معك مهندس النظام خلال ساعات.
             </div>
-            <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">اسم المستشفى / العيادة</label>
-              <input
-                type="text"
-                required
-                className="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm focus:border-blue-500 outline-none text-white"
-                placeholder="مثال: مستشفى الحياة الطبية"
-                value={formData.facility}
-                onChange={(e) => setFormData({ ...formData, facility: e.target.value })}
-              />
-            </div>
-            <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">البريد الإلكتروني / الهاتف</label>
-              <input
-                type="text"
-                required
-                className="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm focus:border-blue-500 outline-none text-white"
-                placeholder="contact@facility.com"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              />
-            </div>
-            <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">تفاصيل الطلب</label>
-              <textarea
-                rows={3}
-                className="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm focus:border-blue-500 outline-none text-white"
-                placeholder="اكتب تفاصيل النظام المطلوب..."
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-blue-600/30"
+          ) : (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setFormSubmitted(true);
+              }}
+              className="mt-8 grid sm:grid-cols-2 gap-4 text-right max-w-xl mx-auto"
             >
-              إرسال الطلب
-            </button>
-          </form>
+              <input
+                type="text"
+                required
+                placeholder="الاسم الكريم"
+                className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-white transition"
+              />
+              <input
+                type="text"
+                required
+                placeholder="اسم المنشأة الطبية"
+                className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-white transition"
+              />
+              <input
+                type="text"
+                required
+                placeholder="رقم الجوال / البريد"
+                className="sm:col-span-2 bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-white transition"
+              />
+              <button
+                type="submit"
+                className="sm:col-span-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-black py-3.5 rounded-xl transition shadow-lg shadow-cyan-500/20 active:scale-[0.99]"
+              >
+                إرسال طلب العرض التجريبي
+              </button>
+            </form>
+          )}
         </div>
       </section>
 
-      {/* 8. Footer */}
-      <footer className="bg-slate-950 text-slate-500 py-8 text-center text-sm border-t border-slate-800">
-        © {new Date().getFullYear()} كيرتيك للحلول البرمجية الطبية. جميع الحقوق محفوظة.
+      {/* 5. Footer */}
+      <footer className="border-t border-slate-800/80 py-8 text-center text-xs text-slate-500">
+        © {new Date().getFullYear()} CareTech OS. تم بناء هذه الصفحة باستخدام Next.js & Tailwind CSS.
       </footer>
     </div>
   );
