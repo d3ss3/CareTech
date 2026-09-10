@@ -62,21 +62,28 @@ export default function NextGenMedicalLanding() {
       </header>
 
       {/* 2. Hero Section */}
-      <section className="relative pt-20 pb-16 px-6 max-w-7xl mx-auto text-center">
+      <section className="relative w-full pt-20 pb-16 px-6 text-center bg-gradient-to-r from-cyan-500 to-blue-600">
         <FadeIn direction="up">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-semibold mb-8 backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-            جيل جديد من برمجيات تشغيل المستشفيات
+            متخصصين في تطوير الأنظمة الطبية
           </div>
 
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.15] max-w-4xl mx-auto">
-            البنية التحتية البرمجية <br />
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">
-              للمنشآت الطبية الحديثة
-            </span>
-          </h1>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.15] max-w-4xl mx-auto overflow-hidden">
+  
+  {/* السطر الأول - من اليمين */}
+  <span className="block animate-[slideFromRight_0.8s_ease-out_forwards] opacity-0">
+    البنية التحتية البرمجية
+  </span>
 
-          <p className="mt-6 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+  {/* السطر الثاني - من اليسار */}
+  <span className="block mt-2 animate-[slideFromLeft_0.8s_ease-out_0.25s_forwards] opacity-0 text-white drop-shadow-lg">
+    للمنشآت الطبية الحديثة
+  </span>
+
+</h1>
+
+          <p className="mt-6 text-white text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             نحول إدارة الطوابير، الموارد البشرية، وتجربة المراجعين إلى منظومة سحابية متكاملة فائقة السرعة مع ربط مباشر بـ HIS.
           </p>
         </FadeIn>
