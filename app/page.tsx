@@ -183,7 +183,7 @@ export default function NextGenMedicalLanding() {
       <PartnersSlider />
 
       {/* 3. Bento Grid Section */}
-      <section id="bento" className="py-20 px-6 max-w-7xl mx-auto bg-gradient-to-b from-cyan-500/10 via-blue-600/10 to-transparent">
+      <section id="bento" className="py-20 px-6 max-w-7xl mx-auto bg-gradient-to-r from-cyan-500 to-blue-600">
         <FadeIn direction="up">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">منظومة مخصصة للارتقاء بالتطبيق الطبي</h2>
