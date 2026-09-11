@@ -343,14 +343,9 @@ export default function NextGenMedicalLanding() {
         ✦
       </div>
       <span className="font-extrabold text-slate-200 text-sm tracking-tight">
-        شفاء تك <span className="text-cyan-400 font-light">| ShefaTech</span>
+        شفاء للتكنولوجيا <span className="text-cyan-400 font-light">| ShefaTech</span>
       </span>
     </div>
-
-    {/* حقوق النشر */}
-    <p className="leading-relaxed">
-      © {new Date().getFullYear()} <span className="text-slate-300 font-semibold">شفاء تك</span>. جميع الحقوق محفوظة.
-    </p>
   </div>
 </footer>
     </div>
