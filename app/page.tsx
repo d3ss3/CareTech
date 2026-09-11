@@ -179,6 +179,9 @@ export default function NextGenMedicalLanding() {
         </FadeIn>
       </section>
 
+            {/* قسم شركاء النجاح */}
+      <PartnersSlider />
+
       {/* 3. Bento Grid Section */}
       <section id="bento" className="py-20 px-6 max-w-7xl mx-auto">
         <FadeIn direction="up">
@@ -277,9 +280,6 @@ export default function NextGenMedicalLanding() {
           </FadeIn>
         </div>
       </section>
-
-      {/* قسم شركاء النجاح */}
-      <PartnersSlider />
 
       {/* 4. CTA & Form Section */}
       <section id="contact" className="py-20 px-6 max-w-4xl mx-auto">
