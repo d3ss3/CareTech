@@ -39,7 +39,7 @@ export default function NextGenMedicalLanding() {
               ✦
             </div>
             <span className="font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-              <span className="text-cyan-400 font-light">CareTech</span>
+              <span className="text-cyan-400 font-light">شفاء للتكنولوجيا</span>
             </span>
           </div>
 
