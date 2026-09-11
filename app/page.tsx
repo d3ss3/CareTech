@@ -39,7 +39,7 @@ export default function NextGenMedicalLanding() {
               ✦
             </div>
             <span className="font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-              <span className="text-cyan-400 font-light">شفاء التقنية</span>
+              <span className="text-cyan-400 font-light">شفاء تك</span>
             </span>
           </div>
 
@@ -343,7 +343,7 @@ export default function NextGenMedicalLanding() {
         ✦
       </div>
       <span className="font-extrabold text-slate-200 text-sm tracking-tight">
-        شفاء التقنية <span className="text-cyan-400 font-light">| ShefaTech</span>
+        شفاء تك <span className="text-cyan-400 font-light">| ShefaTech</span>
       </span>
     </div>
   </div>
