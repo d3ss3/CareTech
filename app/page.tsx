@@ -28,7 +28,6 @@ export default function NextGenMedicalLanding() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-950 relative overflow-hidden">
       {/* خلفية الإضاءة الشبكية (Grid Background & Glows) */}
-      <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-b from-cyan-500/10 via-blue-600/10 to-transparent blur-3xl pointer-events-none"></div>
 
       {/* 1. Navbar */}
@@ -183,7 +182,7 @@ export default function NextGenMedicalLanding() {
       <PartnersSlider />
 
       {/* 3. Bento Grid Section */}
-      <section id="bento" className="py-20 px-6 max-w-7xl mx-auto bg-gradient-to-r from-cyan-500 to-blue-600">
+      <section id="bento" className="py-20 w-full mx-auto bg-gradient-to-r from-cyan-500 to-blue-600">
         <FadeIn direction="up">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">منظومة مخصصة للارتقاء بالتطبيق الطبي</h2>
