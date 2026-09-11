@@ -1,8 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 const partners = [
   { id: 1, name: 'شريك 1', logo: '/partners/1.png' },
@@ -13,9 +12,6 @@ const partners = [
 ];
 
 export default function PartnersSlider() {
-  // تكرار المصفوفة 3 مرات لضمان عدم وجود فراغ أثناء الدوران السريع
-  const duplicatedPartners = [...partners, ...partners, ...partners];
-
   return (
     <section className="py-14 border-y border-slate-800/60 bg-slate-950/40 relative overflow-hidden">
       {/* عنوان القسم */}
@@ -32,33 +28,59 @@ export default function PartnersSlider() {
       <div className="absolute top-0 bottom-0 left-0 w-28 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none"></div>
       <div className="absolute top-0 bottom-0 right-0 w-28 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none"></div>
 
-      {/* الشريط المتحرك */}
-      <div className="flex overflow-hidden select-none group">
+      {/* الشريط المتحرك - المسار المزدوج المتقن */}
+      <div className="flex overflow-hidden select-none group w-full">
+        {/* المسار الأول */}
         <motion.div
-          animate={{ x: ['0%', '-33.33%'] }}
+          animate={{ x: ['0%', '-100%'] }}
           transition={{
             ease: 'linear',
-            duration: 20,
+            duration: 22,
             repeat: Infinity,
           }}
-          className="flex flex-nowrap gap-8 min-w-max items-center group-hover:[animation-play-state:paused]"
+          className="flex shrink-0 items-center gap-6 pr-6 group-hover:[animation-play-state:paused]"
         >
-          {duplicatedPartners.map((partner, index) => (
-            <div
-              key={index}
-              className="relative h-16 w-36 px-4 py-2 rounded-2xl bg-slate-900/40 border border-slate-800/80 flex items-center justify-center hover:border-cyan-500/40 hover:bg-slate-900 transition-all duration-300 group/item"
-            >
-              <Image
-                src={partner.logo}
-                alt={partner.name}
-                width={120}
-                height={120}
-                className="max-h-10 w-auto object-contain filter grayscale opacity-60 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all duration-300"
-              />
-            </div>
+          {partners.map((partner) => (
+            <PartnerCard key={`track1-${partner.id}`} partner={partner} />
+          ))}
+        </motion.div>
+
+        {/* المسار الثاني (نسخة طبق الأصل تتبع المسار الأول مباشرة) */}
+        <motion.div
+          animate={{ x: ['0%', '-100%'] }}
+          transition={{
+            ease: 'linear',
+            duration: 22,
+            repeat: Infinity,
+          }}
+          className="flex shrink-0 items-center gap-6 pr-6 group-hover:[animation-play-state:paused]"
+        >
+          {partners.map((partner) => (
+            <PartnerCard key={`track2-${partner.id}`} partner={partner} />
           ))}
         </motion.div>
       </div>
     </section>
+  );
+}
+
+function PartnerCard({ partner }: { partner: { id: number; name: string; logo: string } }) {
+  const [imgError, setImgError] = useState(false);
+
+  return (
+    <div className="relative h-16 min-w-[150px] px-6 py-2 rounded-2xl bg-slate-900/60 border border-slate-800/80 flex items-center justify-center hover:border-cyan-500/40 hover:bg-slate-900 transition-all duration-300">
+      {!imgError ? (
+        <img
+          src={partner.logo}
+          alt={partner.name}
+          className="max-h-10 max-w-[120px] w-auto h-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+          onError={() => setImgError(true)}
+        />
+      ) : (
+        <span className="text-xs font-semibold text-slate-300 whitespace-nowrap">
+          {partner.name}
+        </span>
+      )}
+    </div>
   );
 }
