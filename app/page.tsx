@@ -335,9 +335,24 @@ export default function NextGenMedicalLanding() {
       </section>
 
       {/* 5. Footer */}
-      <footer className="border-t border-slate-800/80 py-8 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} CareTech OS. تم بناء هذه الصفحة باستخدام Next.js & Tailwind CSS.
-      </footer>
+      <footer className="border-t border-slate-800/80 bg-slate-950 py-10 text-center text-xs text-slate-500 relative z-10">
+  <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    {/* شعار واسم المنصة */}
+    <div className="flex items-center gap-2">
+      <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-slate-950 font-black text-xs shadow-md shadow-cyan-500/20">
+        ✦
+      </div>
+      <span className="font-extrabold text-slate-200 text-sm tracking-tight">
+        شفاء تك <span className="text-cyan-400 font-light">| ShefaTech</span>
+      </span>
+    </div>
+
+    {/* حقوق النشر والتقنيات */}
+    <p className="leading-relaxed">
+      © {new Date().getFullYear()} <span className="text-slate-300 font-semibold">شفاء تك</span>. جميع الحقوق محفوظة. تم تطوير المنصة باستخدام <span className="text-slate-400 font-medium">Next.js & Tailwind CSS</span>.
+    </p>
+  </div>
+</footer>
     </div>
   );
 }
