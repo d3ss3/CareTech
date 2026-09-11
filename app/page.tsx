@@ -176,111 +176,110 @@ export default function NextGenMedicalLanding() {
       {/* قسم شركاء النجاح */}
       <PartnersSlider />
 
-      {/* 3. Bento Grid Section (تم إضافة mx-auto وحل الإزاحة) */}
-      <section id="bento" className="py-20 w-full bg-gradient-to-r from-cyan-500 to-blue-600">
-        <div className="max-w-7xl mx-auto px-6">
-          <FadeIn direction="up">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-                منظومة مخصصة للارتقاء بالتطبيق الطبي
-              </h2>
-              <p className="text-slate-100 mt-3 font-medium">
-                كل ما تحتاجه إدارتك الصحية في واجهة واحدة متناسقة
-              </p>
-            </div>
-          </FadeIn>
+      {/* 3. Bento Grid Section */}
+<section id="bento" className="py-20 w-full bg-gradient-to-r from-cyan-500 to-blue-600 overflow-hidden">
+  <div className="max-w-7xl mx-auto px-6">
+    <FadeIn direction="up">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+          منظومة مخصصة للارتقاء بالتطبيق الطبي
+        </h2>
+        <p className="text-slate-100 mt-3 font-medium">
+          كل ما تحتاجه إدارتك الصحية في واجهة واحدة متناسقة
+        </p>
+      </div>
+    </FadeIn>
 
-          {/* شبكة البينتو متراصفة ومتوسطة تماماً */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Card 1: Queue System */}
-            <FadeIn delay={0.1} className="md:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/90 p-8 backdrop-blur-xl hover:border-cyan-500/50 transition duration-300 relative overflow-hidden group shadow-xl">
-              <div className="absolute top-0 left-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition"></div>
-              <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest font-bold">FLAGSHIP SYSTEM</span>
-              <h3 className="text-2xl font-bold mt-2 text-white">نظام الانتظار والنداء الآلي الذكي</h3>
-              <p className="text-slate-300 text-sm mt-3 leading-relaxed max-w-lg">
-                إدارة مرنة للطوابير مع تحكم كامل بشاشات العيادات، إصدار التذاكر عبر الجوال، ونداء صوتي متعدد اللغات يقلل الازدحام بنسبة تصل إلى 60%.
-              </p>
-              <div className="mt-8 pt-6 border-t border-slate-800 flex flex-wrap gap-3">
-                {['تذاكر رقمية QR', 'تكامل مع الشاشات', 'ربط سحابي مباشر', 'تنبيهات SMS / WhatsApp'].map((tag, idx) => (
-                  <span key={idx} className="px-3 py-1 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-300">
-                    ✓ {tag}
-                  </span>
-                ))}
-              </div>
-            </FadeIn>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Card 1 */}
+      <FadeIn delay={0.1} className="md:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/90 p-8 backdrop-blur-xl hover:border-cyan-500/50 transition duration-300 relative overflow-hidden group shadow-xl isolate will-change-transform">
+        <div className="absolute top-0 left-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition"></div>
+        <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest font-bold">FLAGSHIP SYSTEM</span>
+        <h3 className="text-2xl font-bold mt-2 text-white">نظام الانتظار والنداء الآلي الذكي</h3>
+        <p className="text-slate-300 text-sm mt-3 leading-relaxed max-w-lg">
+          إدارة مرنة للطوابير مع تحكم كامل بشاشات العيادات، إصدار التذاكر عبر الجوال، ونداء صوتي متعدد اللغات يقلل الازدحام بنسبة تصل إلى 60%.
+        </p>
+        <div className="mt-8 pt-6 border-t border-slate-800 flex flex-wrap gap-3">
+          {['تذاكر رقمية QR', 'تكامل مع الشاشات', 'ربط سحابي مباشر', 'تنبيهات SMS / WhatsApp'].map((tag, idx) => (
+            <span key={idx} className="px-3 py-1 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-300">
+              ✓ {tag}
+            </span>
+          ))}
+        </div>
+      </FadeIn>
 
-            {/* Card 2: HR System */}
-            <FadeIn delay={0.2} className="rounded-3xl border border-slate-800/80 bg-slate-900/90 p-8 backdrop-blur-xl hover:border-blue-500/50 transition duration-300 relative overflow-hidden shadow-xl">
-              <span className="text-xs font-mono text-blue-400 uppercase tracking-widest font-bold">HR & ROSTER</span>
-              <h3 className="text-xl font-bold mt-2 text-white">أتمتة الموارد البشرية الطبية</h3>
-              <p className="text-slate-300 text-xs mt-3 leading-relaxed">
-                تخطيط مناوبات الشيفتات المعقدة للكادر الطبي، متابعة البدلات، وحساب الساعات الإضافية بدقة فائقة.
-              </p>
-              <div className="mt-6 p-4 rounded-2xl bg-slate-950 border border-slate-800 text-xs space-y-2">
-                <div className="flex justify-between text-slate-300">
-                  <span>تغطية الطوارئ اليوم:</span>
-                  <span className="text-emerald-400 font-bold">100%</span>
-                </div>
-                <div className="w-full bg-slate-900 h-1.5 rounded-full overflow-hidden">
-                  <div className="bg-emerald-500 h-full w-full"></div>
-                </div>
-              </div>
-            </FadeIn>
-
-            {/* Card 3: UI/UX Medical Design */}
-            <FadeIn delay={0.3} className="rounded-3xl border border-slate-800/80 bg-slate-900/90 p-8 backdrop-blur-xl hover:border-indigo-500/50 transition duration-300 shadow-xl">
-              <span className="text-xs font-mono text-indigo-400 uppercase tracking-widest font-bold">DESIGN SYSTEMS</span>
-              <h3 className="text-xl font-bold mt-2 text-white">تصميم الواجهات الطبية (UI/UX)</h3>
-              <p className="text-slate-300 text-xs mt-3 leading-relaxed">
-                بناء وتطوير واجهات البوابات الطبية بنظم إرشادية تمنع الأخطاء أثناء إدخال بيانات المرضى وتسرع استجابة الكادر.
-              </p>
-            </FadeIn>
-
-            {/* Card 4: Calculator / ROI Integration */}
-            <FadeIn delay={0.4} className="md:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/90 p-8 backdrop-blur-xl hover:border-cyan-500/50 transition duration-300 shadow-xl">
-              <div id="calculator">
-                <div className="flex justify-between items-start flex-wrap gap-4">
-                  <div>
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest font-bold">INTERACTIVE CALCULATOR</span>
-                    <h3 className="text-2xl font-bold mt-1 text-white">حاسبة رفع كفاءة التشغيل</h3>
-                    <p className="text-slate-300 text-xs mt-1">حدد متوسط عدد مراجعي المنشأة يومياً للتحقق من النتائج المتوقعة:</p>
-                  </div>
-                </div>
-
-                <div className="mt-6 space-y-6">
-                  <div>
-                    <div className="flex justify-between text-sm font-bold mb-2 text-white">
-                      <span>عدد المراجعين اليومي:</span>
-                      <span className="text-cyan-400 font-mono text-lg">{dailyPatients} مراجع</span>
-                    </div>
-                    <input
-                      type="range"
-                      min="50"
-                      max="2000"
-                      step="50"
-                      value={dailyPatients}
-                      onChange={(e) => setDailyPatients(Number(e.target.value))}
-                      className="w-full accent-cyan-400 bg-slate-950 h-2 rounded-lg cursor-pointer"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-800">
-                    <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                      <div className="text-slate-400 text-xs">ساعات انتظار موفرة شهرياً</div>
-                      <div className="text-2xl font-black text-cyan-400 font-mono mt-1">+{hoursSavedPerMonth.toLocaleString()} ساعة</div>
-                    </div>
-                    <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                      <div className="text-slate-400 text-xs">معدل رضا المراجعين التقديري</div>
-                      <div className="text-2xl font-black text-emerald-400 font-mono mt-1">{satisfactionRate}%</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
+      {/* Card 2 */}
+      <FadeIn delay={0.2} className="rounded-3xl border border-slate-800/80 bg-slate-900/90 p-8 backdrop-blur-xl hover:border-blue-500/50 transition duration-300 relative overflow-hidden shadow-xl isolate will-change-transform">
+        <span className="text-xs font-mono text-blue-400 uppercase tracking-widest font-bold">HR & ROSTER</span>
+        <h3 className="text-xl font-bold mt-2 text-white">أتمتة الموارد البشرية الطبية</h3>
+        <p className="text-slate-300 text-xs mt-3 leading-relaxed">
+          تخطيط مناوبات الشيفتات المعقدة للكادر الطبي، متابعة البدلات، وحساب الساعات الإضافية بدقة فائقة.
+        </p>
+        <div className="mt-6 p-4 rounded-2xl bg-slate-950 border border-slate-800 text-xs space-y-2">
+          <div className="flex justify-between text-slate-300">
+            <span>تغطية الطوارئ اليوم:</span>
+            <span className="text-emerald-400 font-bold">100%</span>
+          </div>
+          <div className="w-full bg-slate-900 h-1.5 rounded-full overflow-hidden">
+            <div className="bg-emerald-500 h-full w-full"></div>
           </div>
         </div>
-      </section>
+      </FadeIn>
 
+      {/* Card 3 */}
+      <FadeIn delay={0.3} className="rounded-3xl border border-slate-800/80 bg-slate-900/90 p-8 backdrop-blur-xl hover:border-indigo-500/50 transition duration-300 shadow-xl isolate will-change-transform">
+        <span className="text-xs font-mono text-indigo-400 uppercase tracking-widest font-bold">DESIGN SYSTEMS</span>
+        <h3 className="text-xl font-bold mt-2 text-white">تصميم الواجهات الطبية (UI/UX)</h3>
+        <p className="text-slate-300 text-xs mt-3 leading-relaxed">
+          بناء وتطوير واجهات البوابات الطبية بنظم إرشادية تمنع الأخطاء أثناء إدخال بيانات المرضى وتسرع استجابة الكادر.
+        </p>
+      </FadeIn>
+
+      {/* Card 4 */}
+      <FadeIn delay={0.4} className="md:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/90 p-8 backdrop-blur-xl hover:border-cyan-500/50 transition duration-300 shadow-xl isolate will-change-transform">
+        <div id="calculator">
+          <div className="flex justify-between items-start flex-wrap gap-4">
+            <div>
+              <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest font-bold">INTERACTIVE CALCULATOR</span>
+              <h3 className="text-2xl font-bold mt-1 text-white">حاسبة رفع كفاءة التشغيل</h3>
+              <p className="text-slate-300 text-xs mt-1">حدد متوسط عدد مراجعي المنشأة يومياً للتحقق من النتائج المتوقعة:</p>
+            </div>
+          </div>
+
+          <div className="mt-6 space-y-6">
+            <div>
+              <div className="flex justify-between text-sm font-bold mb-2 text-white">
+                <span>عدد المراجعين اليومي:</span>
+                <span className="text-cyan-400 font-mono text-lg">{dailyPatients} مراجع</span>
+              </div>
+              <input
+                type="range"
+                min="50"
+                max="2000"
+                step="50"
+                value={dailyPatients}
+                onChange={(e) => setDailyPatients(Number(e.target.value))}
+                className="w-full accent-cyan-400 bg-slate-950 h-2 rounded-lg cursor-pointer"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-800">
+              <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                <div className="text-slate-400 text-xs">ساعات انتظار موفرة شهرياً</div>
+                <div className="text-2xl font-black text-cyan-400 font-mono mt-1">+{hoursSavedPerMonth.toLocaleString()} ساعة</div>
+              </div>
+              <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                <div className="text-slate-400 text-xs">معدل رضا المراجعين التقديري</div>
+                <div className="text-2xl font-black text-emerald-400 font-mono mt-1">{satisfactionRate}%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </FadeIn>
+    </div>
+  </div>
+</section>
+      
       {/* 4. CTA & Form Section */}
       <section id="contact" className="py-20 px-6 max-w-4xl mx-auto">
         <FadeIn direction="up">
