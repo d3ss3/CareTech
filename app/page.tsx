@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import FadeIn from '@/components/FadeIn';
-
+import PartnersSlider from '@/components/PartnersSlider';
 export default function NextGenMedicalLanding() {
   // 1. حالة المحاكي الحي لنظام الانتظار
   const [activeTab, setActiveTab] = useState<'queue' | 'patient' | 'analytics'>('queue');
@@ -277,6 +277,9 @@ export default function NextGenMedicalLanding() {
           </FadeIn>
         </div>
       </section>
+
+      {/* قسم شركاء النجاح */}
+      <PartnersSlider />
 
       {/* 4. CTA & Form Section */}
       <section id="contact" className="py-20 px-6 max-w-4xl mx-auto">
