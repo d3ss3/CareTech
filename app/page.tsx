@@ -190,10 +190,11 @@ export default function NextGenMedicalLanding() {
       </div>
     </FadeIn>
 
+    {/* شبكة البينتو */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {/* Card 1 */}
-      <FadeIn delay={0.1} className="md:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/90 p-8 backdrop-blur-xl hover:border-cyan-500/50 transition duration-300 relative overflow-hidden group shadow-xl isolate will-change-transform">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition"></div>
+      {/* Card 1: Queue System */}
+      <FadeIn delay={0.1} className="md:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 relative overflow-hidden group shadow-xl">
+        <div className="absolute top-0 left-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest font-bold">FLAGSHIP SYSTEM</span>
         <h3 className="text-2xl font-bold mt-2 text-white">نظام الانتظار والنداء الآلي الذكي</h3>
         <p className="text-slate-300 text-sm mt-3 leading-relaxed max-w-lg">
@@ -208,8 +209,8 @@ export default function NextGenMedicalLanding() {
         </div>
       </FadeIn>
 
-      {/* Card 2 */}
-      <FadeIn delay={0.2} className="rounded-3xl border border-slate-800/80 bg-slate-900/90 p-8 backdrop-blur-xl hover:border-blue-500/50 transition duration-300 relative overflow-hidden shadow-xl isolate will-change-transform">
+      {/* Card 2: HR System */}
+      <FadeIn delay={0.2} className="rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 relative overflow-hidden shadow-xl">
         <span className="text-xs font-mono text-blue-400 uppercase tracking-widest font-bold">HR & ROSTER</span>
         <h3 className="text-xl font-bold mt-2 text-white">أتمتة الموارد البشرية الطبية</h3>
         <p className="text-slate-300 text-xs mt-3 leading-relaxed">
@@ -226,8 +227,8 @@ export default function NextGenMedicalLanding() {
         </div>
       </FadeIn>
 
-      {/* Card 3 */}
-      <FadeIn delay={0.3} className="rounded-3xl border border-slate-800/80 bg-slate-900/90 p-8 backdrop-blur-xl hover:border-indigo-500/50 transition duration-300 shadow-xl isolate will-change-transform">
+      {/* Card 3: UI/UX Medical Design */}
+      <FadeIn delay={0.3} className="rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 shadow-xl">
         <span className="text-xs font-mono text-indigo-400 uppercase tracking-widest font-bold">DESIGN SYSTEMS</span>
         <h3 className="text-xl font-bold mt-2 text-white">تصميم الواجهات الطبية (UI/UX)</h3>
         <p className="text-slate-300 text-xs mt-3 leading-relaxed">
@@ -235,8 +236,8 @@ export default function NextGenMedicalLanding() {
         </p>
       </FadeIn>
 
-      {/* Card 4 */}
-      <FadeIn delay={0.4} className="md:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/90 p-8 backdrop-blur-xl hover:border-cyan-500/50 transition duration-300 shadow-xl isolate will-change-transform">
+      {/* Card 4: Calculator / ROI Integration */}
+      <FadeIn delay={0.4} className="md:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 shadow-xl">
         <div id="calculator">
           <div className="flex justify-between items-start flex-wrap gap-4">
             <div>
