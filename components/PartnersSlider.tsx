@@ -69,7 +69,7 @@ function PartnerCard({ partner }: { partner: { id: number; name: string; logo: s
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className="relative h-25 w-24 px-6 py-2 rounded-2xl bg-slate-900/60 border border-slate-800/80 flex items-center justify-center hover:border-cyan-500/40 hover:bg-slate-900 transition-all duration-300 shrink-0">
+    <div className="relative h-35 w-24 px-6 py-2 rounded-2xl bg-slate-900/60 border border-slate-800/80 flex items-center justify-center hover:border-cyan-500/40 hover:bg-slate-900 transition-all duration-300 shrink-0">
       {!imgError ? (
         <img
           src={partner.logo}
