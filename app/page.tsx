@@ -182,7 +182,7 @@ export default function NextGenMedicalLanding() {
       <PartnersSlider />
 
       {/* 3. Bento Grid Section */}
-      <section id="bento" className="py-20 px-6 max-w-7xl mx-auto bg-gradient-to-r from-cyan-500 to-blue-600">
+      <section id="bento" className="py-20 w-full mx-auto bg-gradient-to-r from-cyan-500 to-blue-600">
         <FadeIn direction="up">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">منظومة مخصصة للارتقاء بالتطبيق الطبي</h2>
@@ -191,7 +191,7 @@ export default function NextGenMedicalLanding() {
         </FadeIn>
 
         {/* شبكة البينتو مع تحريك متدرج لكل بطاقة */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 max-w-7xl">
           {/* Card 1: Queue System */}
           <FadeIn delay={0.1} className="md:col-span-2 rounded-3xl border border-slate-800 bg-slate-900/40 p-8 backdrop-blur-xl hover:border-cyan-500/40 transition duration-300 relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl group-hover:bg-cyan-500/10 transition"></div>
