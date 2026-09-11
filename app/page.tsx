@@ -347,9 +347,9 @@ export default function NextGenMedicalLanding() {
       </span>
     </div>
 
-    {/* حقوق النشر والتقنيات */}
+    {/* حقوق النشر */}
     <p className="leading-relaxed">
-      © {new Date().getFullYear()} <span className="text-slate-300 font-semibold">شفاء تك</span>. جميع الحقوق محفوظة. تم تطوير المنصة باستخدام <span className="text-slate-400 font-medium">Next.js & Tailwind CSS</span>.
+      © {new Date().getFullYear()} <span className="text-slate-300 font-semibold">شفاء تك</span>. جميع الحقوق محفوظة.
     </p>
   </div>
 </footer>
