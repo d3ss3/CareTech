@@ -402,6 +402,78 @@ export default function NextGenMedicalLanding() {
         </div>
       </FadeIn>
 
+      {/* 8 - نظام إدارة طوابير الانتظار */}
+<FadeIn
+  delay={0.45}
+  className="lg:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 relative overflow-hidden group shadow-xl"
+>
+  <div className="absolute top-0 right-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <span className="text-xs font-mono text-cyan-400 tracking-widest font-bold">
+    QUEUE MANAGEMENT
+  </span>
+
+  <h3 className="text-2xl font-bold mt-3 text-white">
+    نظام إدارة طوابير الانتظار
+  </h3>
+
+  <p className="text-slate-300 text-sm mt-3 leading-relaxed max-w-xl">
+    ينظم استقبال المراجعين وانتظارهم داخل المنشأة، مع إصدار أرقام الانتظار
+    واستدعائهم للعيادات والغرف ومتابعة حالة الطابور لحظيًا.
+  </p>
+
+  <div className="mt-6 flex flex-wrap gap-2">
+    {[
+      'تذاكر إلكترونية',
+      'استدعاء المراجعين',
+      'شاشات الانتظار',
+      'تنبيهات صوتية',
+      'متابعة لحظية',
+    ].map((item) => (
+      <span
+        key={item}
+        className="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-300"
+      >
+        ✓ {item}
+      </span>
+    ))}
+  </div>
+</FadeIn>
+
+{/* 9 - نظام الشاشات الإعلانية */}
+<FadeIn
+  delay={0.5}
+  className="rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 shadow-xl"
+>
+  <span className="text-xs font-mono text-violet-400 tracking-widest font-bold">
+    DIGITAL SIGNAGE
+  </span>
+
+  <h3 className="text-xl font-bold mt-3 text-white">
+    نظام الشاشات الإعلانية
+  </h3>
+
+  <p className="text-slate-300 text-sm mt-3 leading-relaxed">
+    إدارة محتوى الشاشات داخل المنشأة لعرض الإعلانات والتنبيهات والتعليمات
+    والعروض الصحية، مع التحكم بالمحتوى وجدولته من لوحة واحدة.
+  </p>
+
+  <div className="mt-6 bg-slate-950 border border-slate-800 rounded-2xl p-4">
+    <div className="flex items-center justify-between text-xs">
+      <span className="text-slate-400">الشاشات المتصلة</span>
+      <span className="text-emerald-400 font-bold">12 شاشة</span>
+    </div>
+
+    <div className="mt-3 h-1.5 bg-slate-900 rounded-full overflow-hidden">
+      <div className="h-full w-[92%] bg-gradient-to-r from-violet-500 to-cyan-400 rounded-full"></div>
+    </div>
+
+    <div className="mt-3 text-[11px] text-slate-500">
+      محتوى مجدول • تنبيهات فورية • تحكم مركزي
+    </div>
+  </div>
+</FadeIn>
+
     </div>
   </div>
 </section>
