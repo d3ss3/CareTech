@@ -78,8 +78,9 @@ export default function NextGenMedicalLanding() {
           </h1>
 
           <p className="mt-6 text-slate-100 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            نحول إدارة الطوابير، الموارد البشرية، وتجربة المراجعين إلى منظومة سحابية متكاملة فائقة السرعة مع ربط مباشر بـ HIS.
-          </p>
+  نطوّر أنظمة رقمية تساعد المنشآت الصحية على تحسين رحلة المريض،
+  تنظيم التشغيل، ورفع كفاءة العمل من خلال حلول مترابطة وقابلة للتوسع.
+</p>
         </FadeIn>
 
         {/* محاكي النظام الحي */}
@@ -172,107 +173,235 @@ export default function NextGenMedicalLanding() {
         </FadeIn>
       </section>
 
-      {/* 3. Bento Grid Section */}
-<section id="bento" className="py-20 w-full bg-gradient-to-r from-cyan-500 to-blue-600 overflow-hidden">
+      {/* 3. الأنظمة الرقمية */}
+<section id="bento" className="py-24 w-full bg-gradient-to-r from-cyan-500 to-blue-600 overflow-hidden">
   <div className="max-w-7xl mx-auto px-6">
+
     <FadeIn direction="up">
       <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-          حلولنا للمنشآت الصحية
+        <span className="inline-flex px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold backdrop-blur-md">
+          حلول رقمية متكاملة
+        </span>
+
+        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mt-5">
+          أنظمة مصممة لتسهيل تشغيل منشأتك
         </h2>
-        <p className="text-slate-100 mt-3 font-medium">
-          كل ما تحتاجه إدارتك الصحية في واجهة واحدة متناسقة
+
+        <p className="text-slate-100 mt-4 max-w-2xl mx-auto leading-relaxed">
+          حلول واضحة وعملية تساعد المنشآت الصحية على تنظيم العمل،
+          تحسين تجربة المراجع، ومتابعة الأداء من مكان واحد.
         </p>
       </div>
     </FadeIn>
 
-    {/* شبكة البينتو */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {/* Card 1: Queue System */}
-      <FadeIn delay={0.1} className="md:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 relative overflow-hidden group shadow-xl">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest font-bold">FLAGSHIP SYSTEM</span>
-        <h3 className="text-2xl font-bold mt-2 text-white">نظام الانتظار والنداء الآلي الذكي</h3>
-        <p className="text-slate-300 text-sm mt-3 leading-relaxed max-w-lg">
-          إدارة مرنة للطوابير مع تحكم كامل بشاشات العيادات، إصدار التذاكر عبر الجوال، ونداء صوتي متعدد اللغات يقلل الازدحام بنسبة تصل إلى 60%.
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      {/* 1 */}
+      <FadeIn
+        delay={0.1}
+        className="lg:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 relative overflow-hidden group shadow-xl"
+      >
+        <div className="absolute top-0 left-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <span className="text-xs font-mono text-cyan-400 tracking-widest font-bold">
+          PATIENT JOURNEY
+        </span>
+
+        <h3 className="text-2xl font-bold mt-3 text-white">
+          نظام رحلة المريض
+        </h3>
+
+        <p className="text-slate-300 text-sm mt-3 leading-relaxed max-w-xl">
+          ينظم رحلة المريض من الحجز والوصول، إلى الانتظار والعيادة وحتى انتهاء الزيارة،
+          مع إشعارات ومتابعة لكل مرحلة.
         </p>
-        <div className="mt-8 pt-6 border-t border-slate-800 flex flex-wrap gap-3">
-          {['تذاكر رقمية QR', 'تكامل مع الشاشات', 'ربط سحابي مباشر', 'تنبيهات SMS / WhatsApp'].map((tag, idx) => (
-            <span key={idx} className="px-3 py-1 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-300">
-              ✓ {tag}
+
+        <div className="mt-6 flex flex-wrap gap-2">
+          {['المواعيد', 'الانتظار', 'التنبيهات', 'متابعة الرحلة'].map((item) => (
+            <span
+              key={item}
+              className="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-300"
+            >
+              ✓ {item}
             </span>
           ))}
         </div>
       </FadeIn>
 
-      {/* Card 2: HR System */}
-      <FadeIn delay={0.2} className="rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 relative overflow-hidden shadow-xl">
-        <span className="text-xs font-mono text-blue-400 uppercase tracking-widest font-bold">HR & ROSTER</span>
-        <h3 className="text-xl font-bold mt-2 text-white">أتمتة الموارد البشرية الطبية</h3>
-        <p className="text-slate-300 text-xs mt-3 leading-relaxed">
-          تخطيط مناوبات الشيفتات المعقدة للكادر الطبي، متابعة البدلات، وحساب الساعات الإضافية بدقة فائقة.
+      {/* 2 */}
+      <FadeIn
+        delay={0.15}
+        className="rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 shadow-xl"
+      >
+        <span className="text-xs font-mono text-pink-400 tracking-widest font-bold">
+          PATIENT EXPERIENCE
+        </span>
+
+        <h3 className="text-xl font-bold mt-3 text-white">
+          نظام تجربة المراجع
+        </h3>
+
+        <p className="text-slate-300 text-sm mt-3 leading-relaxed">
+          يساعد المنشأة على معرفة رضا المراجعين واستقبال الشكاوى والاقتراحات
+          ومتابعتها حتى يتم التعامل معها.
         </p>
-        <div className="mt-6 p-4 rounded-2xl bg-slate-950 border border-slate-800 text-xs space-y-2">
-          <div className="flex justify-between text-slate-300">
-            <span>تغطية الطوارئ اليوم:</span>
-            <span className="text-emerald-400 font-bold">100%</span>
+
+        <div className="mt-6 text-xs text-slate-400 bg-slate-950 border border-slate-800 rounded-xl p-4">
+          تقييم • شكوى • اقتراح • متابعة
+        </div>
+      </FadeIn>
+
+      {/* 3 */}
+      <FadeIn
+        delay={0.2}
+        className="rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 shadow-xl"
+      >
+        <span className="text-xs font-mono text-blue-400 tracking-widest font-bold">
+          INTERNAL REQUESTS
+        </span>
+
+        <h3 className="text-xl font-bold mt-3 text-white">
+          نظام إدارة الطلبات الداخلية
+        </h3>
+
+        <p className="text-slate-300 text-sm mt-3 leading-relaxed">
+          يحول طلبات الموظفين والأقسام إلى معاملات إلكترونية واضحة،
+          مع تحويل الطلب للجهة المختصة ومعرفة حالته حتى الإنجاز.
+        </p>
+
+        <div className="mt-6 flex items-center gap-2 text-xs text-slate-400">
+          <span className="px-3 py-2 rounded-lg bg-slate-950 border border-slate-800">
+            طلب جديد
+          </span>
+          <span>←</span>
+          <span className="px-3 py-2 rounded-lg bg-slate-950 border border-slate-800">
+            معالجة
+          </span>
+          <span>←</span>
+          <span className="px-3 py-2 rounded-lg bg-slate-950 border border-slate-800">
+            مكتمل
+          </span>
+        </div>
+      </FadeIn>
+
+      {/* 4 */}
+      <FadeIn
+        delay={0.25}
+        className="rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 shadow-xl"
+      >
+        <span className="text-xs font-mono text-emerald-400 tracking-widest font-bold">
+          CLINIC OPERATIONS
+        </span>
+
+        <h3 className="text-xl font-bold mt-3 text-white">
+          نظام إدارة العيادات والتشغيل
+        </h3>
+
+        <p className="text-slate-300 text-sm mt-3 leading-relaxed">
+          يساعد الإدارة على تنظيم العيادات والغرف والمواعيد والكادر الطبي،
+          ومعرفة مستوى الضغط والتأخير داخل المنشأة.
+        </p>
+
+        <div className="mt-6 grid grid-cols-3 gap-2 text-center text-xs">
+          <div className="bg-slate-950 rounded-xl p-3">
+            <div className="text-white font-bold">12</div>
+            <div className="text-slate-500 mt-1">عيادة</div>
           </div>
-          <div className="w-full bg-slate-900 h-1.5 rounded-full overflow-hidden">
-            <div className="bg-emerald-500 h-full w-full"></div>
+          <div className="bg-slate-950 rounded-xl p-3">
+            <div className="text-white font-bold">18</div>
+            <div className="text-slate-500 mt-1">غرفة</div>
+          </div>
+          <div className="bg-slate-950 rounded-xl p-3">
+            <div className="text-white font-bold">86%</div>
+            <div className="text-slate-500 mt-1">تشغيل</div>
           </div>
         </div>
       </FadeIn>
 
-      {/* Card 3: UI/UX Medical Design */}
-      <FadeIn delay={0.3} className="rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 shadow-xl">
-        <span className="text-xs font-mono text-indigo-400 uppercase tracking-widest font-bold">DESIGN SYSTEMS</span>
-        <h3 className="text-xl font-bold mt-2 text-white">تصميم الواجهات الطبية (UI/UX)</h3>
-        <p className="text-slate-300 text-xs mt-3 leading-relaxed">
-          بناء وتطوير واجهات البوابات الطبية بنظم إرشادية تمنع الأخطاء أثناء إدخال بيانات المرضى وتسرع استجابة الكادر.
+      {/* 5 */}
+      <FadeIn
+        delay={0.3}
+        className="rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 shadow-xl"
+      >
+        <span className="text-xs font-mono text-orange-400 tracking-widest font-bold">
+          ASSET & MAINTENANCE
+        </span>
+
+        <h3 className="text-xl font-bold mt-3 text-white">
+          نظام الصيانة والأصول الطبية
+        </h3>
+
+        <p className="text-slate-300 text-sm mt-3 leading-relaxed">
+          يسجل الأجهزة والمعدات الطبية، ويستقبل بلاغات الأعطال،
+          ويتابع الصيانة الوقائية والإصلاحات حتى الإغلاق.
         </p>
-      </FadeIn>
 
-      {/* Card 4: Calculator / ROI Integration */}
-      <FadeIn delay={0.4} className="md:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 shadow-xl">
-        <div id="calculator">
-          <div className="flex justify-between items-start flex-wrap gap-4">
-            <div>
-              <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest font-bold">INTERACTIVE CALCULATOR</span>
-              <h3 className="text-2xl font-bold mt-1 text-white">حاسبة رفع كفاءة التشغيل</h3>
-              <p className="text-slate-300 text-xs mt-1">حدد متوسط عدد مراجعي المنشأة يومياً للتحقق من النتائج المتوقعة:</p>
-            </div>
-          </div>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <div className="flex justify-between text-sm font-bold mb-2 text-white">
-                <span>عدد المراجعين اليومي:</span>
-                <span className="text-cyan-400 font-mono text-lg">{dailyPatients} مراجع</span>
-              </div>
-              <input
-                type="range"
-                min="50"
-                max="2000"
-                step="50"
-                value={dailyPatients}
-                onChange={(e) => setDailyPatients(Number(e.target.value))}
-                className="w-full accent-cyan-400 bg-slate-950 h-2 rounded-lg cursor-pointer"
-              />
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-800">
-              <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                <div className="text-slate-400 text-xs">ساعات انتظار موفرة شهرياً</div>
-                <div className="text-2xl font-black text-cyan-400 font-mono mt-1">+{hoursSavedPerMonth.toLocaleString()} ساعة</div>
-              </div>
-              <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                <div className="text-slate-400 text-xs">معدل رضا المراجعين التقديري</div>
-                <div className="text-2xl font-black text-emerald-400 font-mono mt-1">{satisfactionRate}%</div>
-              </div>
-            </div>
-          </div>
+        <div className="mt-6 text-xs text-slate-400 bg-slate-950 border border-slate-800 rounded-xl p-4">
+          جهاز ← بلاغ ← فني ← صيانة ← إغلاق
         </div>
       </FadeIn>
+
+      {/* 6 */}
+      <FadeIn
+        delay={0.35}
+        className="lg:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 relative overflow-hidden shadow-xl"
+      >
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <span className="text-xs font-mono text-violet-400 tracking-widest font-bold">
+          LIVE DASHBOARD
+        </span>
+
+        <h3 className="text-2xl font-bold mt-3 text-white">
+          لوحة القيادة التشغيلية
+        </h3>
+
+        <p className="text-slate-300 text-sm mt-3 leading-relaxed max-w-xl">
+          تمنح الإدارة صورة واضحة عن أداء المنشأة لحظيًا،
+          من أعداد المراجعين والانتظار إلى ضغط العيادات ومستوى التشغيل.
+        </p>
+
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {[
+            ['1,420', 'مراجع اليوم'],
+            ['3.2 د', 'متوسط الانتظار'],
+            ['18', 'عيادة نشطة'],
+            ['94%', 'كفاءة التشغيل'],
+          ].map(([value, label]) => (
+            <div
+              key={label}
+              className="bg-slate-950 border border-slate-800 rounded-2xl p-4"
+            >
+              <div className="text-lg font-black text-white">{value}</div>
+              <div className="text-[11px] text-slate-500 mt-1">{label}</div>
+            </div>
+          ))}
+        </div>
+      </FadeIn>
+
+      {/* 7 */}
+      <FadeIn
+        delay={0.4}
+        className="rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 shadow-xl"
+      >
+        <span className="text-xs font-mono text-amber-400 tracking-widest font-bold">
+          VISITOR MANAGEMENT
+        </span>
+
+        <h3 className="text-xl font-bold mt-3 text-white">
+          نظام إدارة الزيارات والمرافق
+        </h3>
+
+        <p className="text-slate-300 text-sm mt-3 leading-relaxed">
+          ينظم دخول الزوار والمراجعين ويساعد المنشأة على معرفة حركة الدخول
+          والخروج وإدارة التصاريح والزيارات بشكل أكثر تنظيمًا.
+        </p>
+
+        <div className="mt-6 text-xs text-slate-400 bg-slate-950 border border-slate-800 rounded-xl p-4">
+          تسجيل دخول • تصريح • متابعة • خروج
+        </div>
+      </FadeIn>
+
     </div>
   </div>
 </section>
