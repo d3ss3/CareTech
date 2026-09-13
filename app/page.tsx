@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import FadeIn from '@/components/FadeIn';
-import PartnersSlider from '@/components/PartnersSlider';
 
 export default function NextGenMedicalLanding() {
   // 1. حالة المحاكي الحي لنظام الانتظار
@@ -172,9 +171,6 @@ export default function NextGenMedicalLanding() {
           </div>
         </FadeIn>
       </section>
-
-      {/* قسم شركاء النجاح */}
-      <PartnersSlider />
 
       {/* 3. Bento Grid Section */}
 <section id="bento" className="py-20 w-full bg-gradient-to-r from-cyan-500 to-blue-600 overflow-hidden">
