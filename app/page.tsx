@@ -196,38 +196,49 @@ export default function NextGenMedicalLanding() {
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      {/* 1 */}
-      <FadeIn
-        delay={0.1}
-        className="lg:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 relative overflow-hidden group shadow-xl"
+      {/* 1 - بطاقة نظام رحلة المريض */}
+<FadeIn
+  delay={0.1}
+  className="lg:col-span-2 rounded-3xl border border-slate-800/80 bg-slate-900/95 p-8 relative overflow-hidden group shadow-xl"
+>
+  <div className="absolute top-0 left-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <span className="text-xs font-mono text-cyan-400 tracking-widest font-bold">
+    PATIENT JOURNEY
+  </span>
+
+  <h3 className="text-2xl font-bold mt-3 text-white">
+    نظام رحلة المريض
+  </h3>
+
+  <p className="text-slate-300 text-sm mt-3 leading-relaxed max-w-xl">
+    ينظم رحلة المريض من الحجز والوصول، إلى الانتظار والعيادة وحتى انتهاء الزيارة،
+    مع إشعارات ومتابعة لكل مرحلة.
+  </p>
+
+  <div className="mt-6 flex flex-wrap gap-2">
+    {['المواعيد', 'الانتظار', 'التنبيهات', 'متابعة الرحلة'].map((item) => (
+      <span
+        key={item}
+        className="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-300"
       >
-        <div className="absolute top-0 left-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        ✓ {item}
+      </span>
+    ))}
+  </div>
 
-        <span className="text-xs font-mono text-cyan-400 tracking-widest font-bold">
-          PATIENT JOURNEY
-        </span>
-
-        <h3 className="text-2xl font-bold mt-3 text-white">
-          نظام رحلة المريض
-        </h3>
-
-        <p className="text-slate-300 text-sm mt-3 leading-relaxed max-w-xl">
-          ينظم رحلة المريض من الحجز والوصول، إلى الانتظار والعيادة وحتى انتهاء الزيارة،
-          مع إشعارات ومتابعة لكل مرحلة.
-        </p>
-
-        <div className="mt-6 flex flex-wrap gap-2">
-          {['المواعيد', 'الانتظار', 'التنبيهات', 'متابعة الرحلة'].map((item) => (
-            <span
-              key={item}
-              className="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-300"
-            >
-              ✓ {item}
-            </span>
-          ))}
-        </div>
-      </FadeIn>
-
+  {/* ⚡ الزر الجديد للانتقال للديمو المباشر */}
+  <div className="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between">
+    <Link
+      href="/demo/patient-journey"
+      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 text-xs font-black transition shadow-lg shadow-cyan-500/20 active:scale-95"
+    >
+      <span>تجربة الديمو التفاعلي الآن</span>
+      <span>↗</span>
+    </Link>
+    <span className="text-[11px] text-slate-500 hidden sm:block">محاكاة حية ثنائية الشاشة</span>
+  </div>
+</FadeIn>
       {/* 2 */}
       <FadeIn
         delay={0.15}
