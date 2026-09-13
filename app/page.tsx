@@ -182,7 +182,7 @@ export default function NextGenMedicalLanding() {
     <FadeIn direction="up">
       <div className="text-center mb-16">
         <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-          منظومة مخصصة للارتقاء بالتطبيق الطبي
+          حلولنا للمنشآت الصحية
         </h2>
         <p className="text-slate-100 mt-3 font-medium">
           كل ما تحتاجه إدارتك الصحية في واجهة واحدة متناسقة
